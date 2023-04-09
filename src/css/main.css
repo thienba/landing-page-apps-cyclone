@@ -1,0 +1,131 @@
+@font-face {
+    font-family: "Centra Extrabold";
+    src: url("../fonts/centra-no2/CentraNo2-Extrabold.ttf");
+}
+
+@font-face {
+    font-family: "Centra Bold";
+    src: url("../fonts/centra-no2/CentraNo2-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Centra Book";
+    src: url("../fonts/centra-no2/CentraNo2-Book.ttf");
+}
+
+@font-face {
+    font-family: "Centra Medium";
+    src: url("../fonts/centra-no2/CentraNo2-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Centra Lights";
+    src: url("../fonts/centra-no2/CentraNo2-Light.ttf");
+}
+
+@font-face {
+    font-family: "Centra Hairline";
+    src: url("../fonts/centra-no2/CentraNo2-Hairline.ttf");
+}
+
+@font-face {
+    font-family: "Centra Thin";
+    src: url("../fonts/centra-no2/CentraNo2-Thin.ttf");
+}
+
+::selection {
+    background: #00a8a499;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #00a8a466;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00a8a4;
+    border-radius: 100rem;
+}
+
+.header {
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    background: rgba(255, 255, 255, 0.69);
+}
+
+.header.is-sticky {
+    position: fixed;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.75s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.loader {
+    width: 35px;
+    padding: 4px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #00a8a4;
+    --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: loader 1s infinite linear;
+}
+@keyframes loader {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.loading-skeleton {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-skeleton::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    width: 500%;
+    margin-left: -250%;
+    content: " ";
+    background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 46%,
+            rgba(255, 255, 255, 0.35) 50%,
+            rgba(255, 255, 255, 0) 54%
+        )
+        50% 50%;
+    -webkit-animation: loading-animation 0.8s linear infinite;
+    animation: loading-animation 0.8s linear infinite;
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: translate3d(-30%, 0, 0);
+    }
+    100% {
+        transform: translate3d(30%, 0, 0);
+    }
+}
+
+.list-tabs::-webkit-scrollbar {
+    height: 4px;
+}
